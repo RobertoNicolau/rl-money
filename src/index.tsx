@@ -11,7 +11,8 @@ createServer({
 
   seeds(server){
     server.db.loadData({
-      transactions: [{
+      transactions: [
+      {
         id: 1,
         title: 'Freela Website',
         type: 'deposit',
@@ -26,7 +27,7 @@ createServer({
         category: 'Contas',
         amount: 1000,
         createdAt: new Date('2022-05-15 11:00:00'),
-      }]
+      }],
     })
   },
 
@@ -34,7 +35,7 @@ createServer({
     this.namespace = 'api';
 
     this.get('/transactions', () => {
-      return this.schema.all('transactions')
+      return this.schema.all('transaction')
     })
 
     this.post('/transactions', (schema, request) => {
